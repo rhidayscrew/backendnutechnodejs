@@ -21,8 +21,10 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(router);
 
-//const port = process.env.PORT || 5000;
-//app.listen(port, ()=> console.log('Server running at port 5000'));ssd
-app.listen(process.env.PORT || PORT,() => {
-   console.log(`Server running on port ${PORT}`);
-});
+const port = process.env.PORT || PORT;
+app.listen(port, ()=> console.log('Server running at port 5000'));
+
+
+//app.listen(process.env.PORT || 5000,() => {
+  // console.log(`Server running on port ${PORT}`);
+//});

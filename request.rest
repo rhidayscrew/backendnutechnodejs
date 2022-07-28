@@ -1,0 +1,32 @@
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJzY3JldyIsImVtYWlsIjoic2NyZXdAZ21haWwuY29tIiwiaWF0IjoxNjU4MjgyOTc2LCJleHAiOjE2NTgyODI5OTF9.f_tyL9QgKlw_18NCkTcIpXj6NMknM23Bm_l7Hdj-0WU
+
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name" : "screw2",
+    "email" : "screw2@gmail.com",
+    "password" : "123456",
+    "confPassword" : "123456"
+}
+
+
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "screw@gmail.com",
+    "password" : "12345"
+}
+
+
+
+###
+GET http://localhost:5000/token
+
+
+###
+DELETE http://localhost:5000/logout

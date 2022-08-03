@@ -16,22 +16,22 @@ try {
     console.error(error);
 }
 
-var cors = require('cors');
-app.use(cors()); // Use this after the variable
-//app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify.app/' }));
+//var cors = require('cors');
+//app.use(cors()); // Use this after the variable
+app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify.app/' }));
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://whimsical-selkie-d52dc2.netlify.app/");
-  res.setHeader(
-    "Access-Control-Allow-Headers", "application/x-www-form-urlencoded",
-    "Origin, Accept, Accept-Version,Set-Cookie, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-  )
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "https://whimsical-selkie-d52dc2.netlify.app/");
+//   res.setHeader(
+//     "Access-Control-Allow-Headers", "application/x-www-form-urlencoded",
+//     "Origin, Accept, Accept-Version,Set-Cookie, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization"
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+//   )
+//   next();
+// });
 
 app.use(cookieParser());
 app.use(express.json());

@@ -16,7 +16,7 @@ try {
     console.error(error);
 }
 
-app.use(cors({ credentials:true, origin:'http://updatenutechnodemysql.herokuapp.com' }));
+app.use(cors({ credentials:true, origin:'https://updatenutechnodemysql.herokuapp.com' }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(router);

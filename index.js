@@ -18,7 +18,6 @@ try {
 
 //var cors = require('cors');
 //app.use(cors()); // Use this after the variable
-app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify.app/' }));
 
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "https://whimsical-selkie-d52dc2.netlify.app/");
@@ -35,6 +34,9 @@ app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify
 
 app.use(cookieParser());
 app.use(express.json());
+// cors dibawah express
+app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify.app' }));
+
 app.use(router);
 
 

@@ -16,16 +16,24 @@ try {
     console.error(error);
 }
 
-app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify.app/' }));
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(router);
-app.use((req,res,next)=>{
-    res.header('Access-Control-Allow-Headers, *, Access-Control-Allow-Origin', 'Origin, X-Requested-with, Content_Type,Accept,Authorization','https://whimsical-selkie-d52dc2.netlify.app/');
-    if(req.method === 'OPTIONS') {
-        res.header('Access-Control-Allow-Methods','PUT,POST,PATCH,DELETE,GET');
-        return res.status(200).json({});
-    }
+app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify.app/' }));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://whimsical-selkie-d52dc2.netlify.app/");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, Accept, Accept-Version,Set-Cookie, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization"
+  );
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+  res.header("Content-Type", "application/json");
+  res.header("Access-Control-Allow-Credentials", true);
+
+  if (req.method === 'OPTIONS')
+    res.status(200).send();
+  else
     next();
 });
 

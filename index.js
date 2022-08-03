@@ -16,7 +16,13 @@ try {
     console.error(error);
 }
 
-app.use(cors({ credentials:true, origin:'https://whimsical-selkie-d52dc2.netlify.app/' }));
+app.use(cors({
+  origin:'https://whimsical-selkie-d52dc2.netlify.app/' ,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true
+
+}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(router);
